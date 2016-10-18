@@ -51,6 +51,12 @@ public class MainActivity extends AppCompatActivity {
                         .setImageName("test")
                         .setImageFolderName("testFolder")
                         .setCropScreenColor(Color.CYAN)
+                        .setOnPermissionRefusedListener(new PickerBuilder.onPermissionRefusedListener() {
+                            @Override
+                            public void onPermissionRefused() {
+
+                            }
+                        })
                         .start();
             }
         });
