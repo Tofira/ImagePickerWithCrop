@@ -83,6 +83,7 @@ The library offers several customization options -
 * `setCropScreenColor(Color)` - default is the app's primary color.
 * `setImageName(name)`  - default it the app's name.
 * `setImageFolderName(name)`  - default it the app's name.
+* `setCustomizedUcrop(UCrop)` - set your own UCrop, instead of the default conifgured one.
 * `setOnPermissionRefusedListener(PickerBuilder.onPermissionRefusedListener)`
 
 ##Credits
