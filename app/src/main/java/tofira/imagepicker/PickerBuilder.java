@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
 
+import com.yalantis.ucrop.UCrop;
+
 import java.io.Serializable;
 
 /**
@@ -72,6 +74,11 @@ public class PickerBuilder {
 
     public PickerBuilder setImageFolderName(String folderName) {
         pickerManager.setImageFolderName(folderName);
+        return this;
+    }
+
+    public PickerBuilder setCustomizedUcrop(UCrop ucrop) {
+        pickerManager.setCustomizedUcrop(ucrop);
         return this;
     }
 

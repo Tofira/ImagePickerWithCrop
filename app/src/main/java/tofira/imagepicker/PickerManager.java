@@ -36,6 +36,7 @@ public abstract  class PickerManager {
     private String folder = null;
     private String imageName;
     protected Activity activity;
+    private UCrop uCrop;
     protected PickerBuilder.onImageReceivedListener imageReceivedListener;
     protected PickerBuilder.onPermissionRefusedListener permissionRefusedListener;
     private int cropActivityColor = R.color.colorPrimary;
@@ -117,15 +118,19 @@ public abstract  class PickerManager {
 
     public void startCropActivity()
     {
-        UCrop uCrop = UCrop.of(mProcessingPhotoUri, getImageFile());
-        uCrop = uCrop.useSourceImageAspectRatio();
-        UCrop.Options options = new UCrop.Options();
-        options.setFreeStyleCropEnabled(true);
+        if(uCrop == null)
+        {
+            uCrop = UCrop.of(mProcessingPhotoUri, getImageFile());
+            uCrop = uCrop.useSourceImageAspectRatio();
+            UCrop.Options options = new UCrop.Options();
+            options.setFreeStyleCropEnabled(true);
 
-        options.setToolbarColor(cropActivityColor);
-        options.setStatusBarColor(cropActivityColor);
-        options.setActiveWidgetColor(cropActivityColor);
-        uCrop = uCrop.withOptions(options);
+            options.setToolbarColor(cropActivityColor);
+            options.setStatusBarColor(cropActivityColor);
+            options.setActiveWidgetColor(cropActivityColor);
+            uCrop = uCrop.withOptions(options);
+        }
+
         uCrop.start(activity);
     }
 
@@ -161,6 +166,11 @@ public abstract  class PickerManager {
 
     public PickerManager setImageFolderName(String folder) {
         this.folder = folder;
+        return this;
+    }
+
+    public PickerManager setCustomizedUcrop(UCrop customizedUcrop) {
+        this.uCrop = customizedUcrop;
         return this;
     }
 }
