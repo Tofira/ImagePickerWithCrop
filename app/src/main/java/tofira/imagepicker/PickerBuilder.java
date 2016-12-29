@@ -16,7 +16,6 @@ import java.io.Serializable;
 public class PickerBuilder {
     public static final int SELECT_FROM_GALLERY = 0;
     public static final int SELECT_FROM_CAMERA = 1;
-    private int pickerType = SELECT_FROM_GALLERY;
     private Activity activity;
     private onPermissionRefusedListener permissionRefusedListener;
     protected onImageReceivedListener imageReceivedListener;
